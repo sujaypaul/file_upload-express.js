@@ -14,10 +14,10 @@ app.post('/file_upload', upload.single('file'), (req, res) => {
     const fileBuffer = req.file.buffer
 
     const config = {
-        server: '<your_server_name>.database.windows.net',
-        database: '<your_database_name>',
-        user: '<your_username>@<your_server_name>',
-        password: '<your_password>',
+        server: 'file-server.database.windows.net',
+        database: 'sql-db',
+        user: 'azureuser@file-server',
+        password: 'asdf@1234',
         port: 1433,
         options: {
             encrypt: true
