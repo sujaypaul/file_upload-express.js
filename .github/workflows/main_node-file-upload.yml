@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'node-file-upload'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C9E7EA8ADD0D4AB9BBC18AD267CF2E7E }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6741CAAA268D48D2A466BE21EFFC70E9 }}
           package: .
