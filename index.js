@@ -27,6 +27,15 @@ app.post('/file_upload', upload.single('file'), (req, res) => {
     const pool = new sql.ConnectionPool(config)
 
     pool.connect().then(() => {
+        return pool.request().query(`
+        IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'files')
+        CREATE TABLE files (
+            id INT IDENTITY(1,1) PRIMARY KEY,
+            name VARCHAR(100) NOT NULL,
+            content VARBINARY(MAX) NOT NULL
+        )
+    `);
+    }).then(() => {
         const request = new sql.Request(pool)
         request.input('name', sql.VarChar, fileName)
         request.input('content', sql.VarBinary, fileBuffer)
