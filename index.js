@@ -1,7 +1,6 @@
 const express = require('express')
 const multer = require('multer')
 const sql = require('mssql')
-const fs = require('fs')
 
 const app = express()
 
